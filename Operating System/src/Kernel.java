@@ -5,65 +5,86 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Kernel {
-
-	private static int  ProcessID=0;
-	private static Object [] MEM= new Object [40]; 
-	private  static int pc=0;
-	private static Queue <Process> Ready= new LinkedList<>();
-	private static Queue <Process> Blocked= new LinkedList<>();
-	private static Queue <Process> Finished= new LinkedList<>();
-    private static Process RunningProcess= null;
-    
 	
-	public static void  codeParser (String filelocation)
-	{		  
-          //hello
-		   Queue<String> queue= new LinkedList<>();
-		   int numofInstruction=0;
-		   File file = new File(filelocation);
-		   int PC_begin =pc;
-		   pc+=4;
-	        Scanner scanner;
-        
-	        try {
-	            scanner = new Scanner(file);
-	        } catch (FileNotFoundException e) {
-	            e.printStackTrace();
-	            return ; // Handle the exception or terminate the program
-	        }
-	        while (scanner.hasNextLine())
-	        {
-	        	String Line = scanner.nextLine();
-	        	queue.add(Line);
-	        	numofInstruction++;
+	private static int  ProcessID;
+	private static Memory_Element [] MEM;
+    static int pc;
+	private static Queue <Process> Ready;
+    private static  Process RunningProcess;
+    
+    public Kernel() {
+    	
+    	this.ProcessID = 0;
+    	this.MEM = new Memory_Element [40]; 
+    	this.pc = 0;
+    	this.Ready  = new LinkedList<>();
+    	this.RunningProcess = null;
+    }
 
-	        	
-	        	
-	        }
-        	if (numofInstruction+4 <= (MEM.length-pc))
-        	{
-        		while (!queue.isEmpty())
-        		{
-        		MEM[pc++]=queue.remove();
-        		}
-        	}
-        	else 
-        	{
-        		// block process
-        	}
-        	
-	        
-			   PCB PCB1=new PCB(ProcessID++,"Ready",(PC_begin+4)+"-"+(pc-1));
-			   Process p= new Process(PCB1);			  
-			   Ready.add(p);
-			   MEM[PC_begin]=PCB1;
-
-			   
-          
-
+    
+    
+		public static int getProcessID() {
+		return ProcessID;
 	}
-	public static void decode (String i) throws FileNotFoundException
-	{
+
+
+
+	public static void setProcessID(int processID) {
+		ProcessID = processID;
+	}
+
+
+
+	public static Memory_Element[] getMEM() {
+		return MEM;
+	}
+
+
+
+	public static void setMEM(Memory_Element[] mEM) {
+		MEM = mEM;
+	}
+
+
+
+	public static int getPc() {
+		return pc;
+	}
+
+
+
+	public static int setPc(int pc) {
+		return Kernel.pc = pc;
+	}
+
+
+
+	public static Queue<Process> getReady() {
+		return Ready;
+	}
+
+
+
+	public static void setReady(Queue<Process> ready) {
+		Ready = ready;
+	}
+
+
+
+	public static Process getRunningProcess() {
+		return RunningProcess;
+	}
+
+
+
+	public static void setRunningProcess(Process runningProcess) {
+		RunningProcess = runningProcess;
+	}
+
+
+
+		public static void decode (String i) throws FileNotFoundException{
+			
 		Scanner sc =  new Scanner(System.in);
 		Scanner scanner;
 		String instruction [] = i.split(" ");
@@ -116,54 +137,10 @@ public class Kernel {
 		}
 				
 	}
-	public static void main(String[] args) {
-        codeParser("src/Program_1.txt");
-        codeParser("src/Program_2.txt");
-        codeParser("src/Program_3.txt");
-        
-        //Print Memory
-        for(int i=0; i<MEM.length;i++)
-        {
-        	if (MEM[i] == null)
-        	{
-        		System.out.println("NULL");
-        	}
-        	if (MEM[i] !=null)
-        	{
-        System.out.println(MEM[i].toString());
-        	}
-        	
-        }
-        
-        while (!Ready.isEmpty())
-        	
-        {
-        	int scheduleCounter=2;
-        	if (RunningProcess== null)
-        	{
-        		RunningProcess=Ready.remove();
-        		
-        	}
-        int ID =RunningProcess.PCB1.processID;
-        for (int i=0;i<(pc-1);i++)
-        {
-        	
-        	if (MEM[i] instanceof PCB)
-        	{
-        		PCB p1=(PCB) MEM[i];
-        		if (p1.processID== ID)
-        		{
-        			int begin= Integer.parseInt(""+p1.MemoryBoundaries.charAt(0));
-        			int end= Integer.parseInt(""+p1.MemoryBoundaries.charAt(2));
-                  //  execute();
-        		}
-        	}
-        }
-        	
-        }
-//        codeParser("./Program_2.txt");
-//        codeParser("./Program_3.txt");
 
-	}
+
+
+	
+	
 
 }

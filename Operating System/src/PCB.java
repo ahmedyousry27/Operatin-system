@@ -6,7 +6,7 @@ public class PCB extends Memory_Element {
 	String MemoryBoundaries;
 	
 	public PCB(int processID,String processState,String MemoryBoundaries)
-	{  super(0);
+	{  
 		this.processID=processID;
 		this.processState=processState;
 		this.ProgramCounter=0;

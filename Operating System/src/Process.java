@@ -1,9 +1,9 @@
 public class Process {
-	PCB PCB1;
+	PCB pcb;
 	
-	public Process(PCB PCB1)
+	public Process(PCB pcb)
 	{
-		this.PCB1=PCB1;
+		this.pcb=pcb;
 	}
 
 }

@@ -1,4 +1,4 @@
-public class PCB {
+public class PCB extends Memory_Element {
 
 	int processID;
 	String processState;
@@ -6,7 +6,7 @@ public class PCB {
 	String MemoryBoundaries;
 	
 	public PCB(int processID,String processState,String MemoryBoundaries)
-	{
+	{  super(0);
 		this.processID=processID;
 		this.processState=processState;
 		this.ProgramCounter=0;
@@ -14,7 +14,7 @@ public class PCB {
 		
 	}
     public String toString() {
-        return "[processID=" + processID + ", processState = " + processState + ", ProgramCounter"+ ProgramCounter+ "MemoryBoundaries"+ MemoryBoundaries +"]";
+        return "[processID=" + processID + ", processState = " + processState + ", ProgramCounter "+ ProgramCounter+ ", MemoryBoundaries "+ MemoryBoundaries +"]";
     }
 }
 	

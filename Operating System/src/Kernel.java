@@ -17,7 +17,7 @@ public class Kernel {
 	
 	public static void  codeParser (String filelocation)
 	{		  
-
+          //hello
 		   Queue<String> queue= new LinkedList<>();
 		   int numofInstruction=0;
 		   File file = new File(filelocation);
@@ -67,14 +67,14 @@ public class Kernel {
 		Scanner sc =  new Scanner(System.in);
 		Scanner scanner;
 		String instruction [] = i.split(" ");
-		int x=0;
+		String x="";
 		switch (instruction[0])
 		{
 		case "assign":
 			if (instruction [2]=="Input")
 		   {
 			  System.out.println("Please enter a value");
-               x = sc.nextInt();			
+             //  x = sc.nextInt();			
 		   }
 			else if (instruction [2]=="readFile")
 			{
@@ -87,7 +87,7 @@ public class Kernel {
 			}
 			else
 			{
-				x=Integer.parseInt(instruction[2]);
+			//	x=Integer.parseInt(instruction[2]);
 			}
 			break;
 		case "printFrom":
@@ -120,8 +120,14 @@ public class Kernel {
         codeParser("src/Program_1.txt");
         codeParser("src/Program_2.txt");
         codeParser("src/Program_3.txt");
-        for(int i=0; i<(pc-1);i++)
+        
+        //Print Memory
+        for(int i=0; i<MEM.length;i++)
         {
+        	if (MEM[i] == null)
+        	{
+        		System.out.println("NULL");
+        	}
         	if (MEM[i] !=null)
         	{
         System.out.println(MEM[i].toString());

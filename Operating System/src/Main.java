@@ -12,7 +12,7 @@ public class Main {
         interpreter.codeParser("src/Program_2.txt");
         interpreter.codeParser("src/Program_3.txt");
         
-        //Print Memor
+        //Print Memory
         for(int i=0; i<kernel.getMEM().length;i++)
         {
         	if (kernel.getMEM()[i] == null)
@@ -25,6 +25,9 @@ public class Main {
         	}
         	
         }
+        
+        
+        
        
         }
 //        codeParser("./Program_2.txt");
@@ -32,4 +35,4 @@ public class Main {
 
 	}
 
-}
+

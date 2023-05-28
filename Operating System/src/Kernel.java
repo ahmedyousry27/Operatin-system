@@ -85,58 +85,22 @@ public class Kernel {
 
 		public static void decode (String i) throws FileNotFoundException{
 			
-		Scanner sc =  new Scanner(System.in);
-		Scanner scanner;
-		String instruction [] = i.split(" ");
-		String x="";
-		switch (instruction[0])
-		{
-		case "assign":
-			if (instruction [2]=="Input")
-		   {
-			  System.out.println("Please enter a value");
-             //  x = sc.nextInt();			
-		   }
-			else if (instruction [2]=="readFile")
-			{
-				 scanner = new Scanner(instruction[3]);
-			        while (scanner.hasNextLine())
-			        {
-			          // read file
-			        }
-				
-			}
-			else
-			{
-			//	x=Integer.parseInt(instruction[2]);
-			}
-			break;
-		case "printFrom":
-			int a = Integer.parseInt(instruction[1]);
-			int b = Integer.parseInt(instruction[2]);
-			for (int i1=a;i1<=b;i1++)
-			{
-				System.out.print(i+" ");
-			}
 			
 		
-		}
-		
-		
 	}
-	public static void execute (int begin,int end)
-	{
-		
-		int timer =2;
-		while (timer-->0)
-		{
-			String i = (String) MEM[0];
-		//	decode(i);
-			
-					
-		}
-				
-	}
+//	public static void execute (int begin,int end)
+//	{
+//		
+//		int timer =2;
+//		while (timer-->0)
+//		{
+//			String i = (String) MEM[0];
+//		//	decode(i);
+//			
+//					
+//		}
+//				
+//	}
 
 
 

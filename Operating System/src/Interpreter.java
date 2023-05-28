@@ -39,8 +39,8 @@ public class Interpreter {
         	{
         		while (!queue.isEmpty())
         		{
-        		Kernel.getMEM()[Kernel.setPc(Kernel.getPc()+1)]=queue.remove();
-        		
+        		Kernel.getMEM()[Kernel.getPc()]=queue.remove();
+        		Kernel.setPc(Kernel.getPc()+1);
         		}
         	}
         	else 
@@ -49,10 +49,11 @@ public class Interpreter {
         	}
         	
 	        
-			   PCB PCB=new PCB(ProcessID++,"Ready",(PC_begin+4)+"-"+(pc-1));
+			   PCB PCB=new PCB(Kernel.getProcessID(),"Ready",(PC_begin+4)+"-"+(Kernel.getPc()-1));
+			   Kernel.setProcessID(Kernel.getProcessID()+1);
 			   Process p= new Process(PCB);			  
-			   Ready.add(p);
-			   MEM[PC_begin]=PCB;
+			   Kernel.getReady().add(p);
+			   Kernel.getMEM()[PC_begin]=PCB;
 
 			   
           

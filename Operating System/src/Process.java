@@ -6,4 +6,8 @@ public class Process {
 		this.pcb=pcb;
 	}
 
+	@Override
+	public String toString() {
+		return "Process "+this.pcb.getProcessID()+"";
+	}
 }

@@ -8,9 +8,11 @@ public class Kernel {
 	
 	private static int  ProcessID;
 	private static Memory_Element [] MEM;
+	private static Memory_Element [] memLabel; 
     static int pc;
 	private static Queue <Process> Ready;
     private static  Process RunningProcess;
+    private static Queue<Process> finished;
     
     public Kernel() {
     	
@@ -18,11 +20,24 @@ public class Kernel {
     	this.MEM = new Memory_Element [40]; 
     	this.pc = 0;
     	this.Ready  = new LinkedList<>();
+    	this.finished= new LinkedList<>();
     	this.RunningProcess = null;
     }
 
     
     
+		public static Queue<Process> getFinished() {
+		return finished;
+	}
+
+
+
+	public static void setFinished(Queue<Process> finished) {
+		Kernel.finished = finished;
+	}
+
+
+
 		public static int getProcessID() {
 		return ProcessID;
 	}
@@ -83,11 +98,16 @@ public class Kernel {
 
 
 
-		public static void decode (String i) throws FileNotFoundException{
-			
-			
+		
+	public static void print()
+	{
+		String s = "";
+		
 		
 	}
+			
+		
+	
 //	public static void execute (int begin,int end)
 //	{
 //		
@@ -108,3 +128,4 @@ public class Kernel {
 	
 
 }
+

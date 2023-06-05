@@ -24,5 +24,9 @@ public Memory_Variable (String name , String value)
 this.name=name;	
 this.value=value;	
 }
-
+@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return name+"="+ value;
+	}
 }
